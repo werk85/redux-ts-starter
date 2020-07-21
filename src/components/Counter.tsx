@@ -1,16 +1,11 @@
 import React from 'react'
 
-export interface CounterStateProps {
+export interface CounterProps {
   counter: number
-}
-
-export interface CounterDispatchProps {
   onIncrement: () => void
   onDecrement: () => void
   onReset: () => void
 }
-
-export interface CounterProps extends CounterStateProps, CounterDispatchProps {}
 
 export const Counter: React.FC<CounterProps> = ({ counter, onIncrement, onDecrement, onReset }) => (
   <div>

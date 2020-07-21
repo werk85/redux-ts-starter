@@ -2,21 +2,16 @@ import React from 'react'
 import * as O from 'fp-ts/lib/Option'
 import * as E from 'fp-ts/lib/Either'
 import { pipe } from 'fp-ts/lib/function'
-import { Todo, TodoStateProps } from './Todo'
+import { Todo, TodoProps } from './Todo'
 
-export interface Todo extends TodoStateProps {
+export interface Todo extends TodoProps {
   id: number
 }
 
-export interface TodoListStateProps {
+export interface TodoListProps {
   todos: O.Option<E.Either<unknown, Array<Todo>>>
-}
-
-export interface TodoListDispatchProps {
   onChange: (todo: Todo, isChecked: boolean) => void
 }
-
-export interface TodoListProps extends TodoListStateProps, TodoListDispatchProps {}
 
 export const TodoList: React.FC<TodoListProps> = ({ todos, onChange }) => (
   <ul>
