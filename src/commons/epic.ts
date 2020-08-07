@@ -14,7 +14,3 @@ export function ofType<A extends Action, B extends A>(...creator: ActionCreator<
 export interface Epic<S, D> {
   (actions$: Observable<Action>, state$: Observable<S>, deps: D): Observable<Action>
 }
-
-export function create<S, D>(epic: Epic<S, D>): Epic<S, D> {
-  return epic
-}

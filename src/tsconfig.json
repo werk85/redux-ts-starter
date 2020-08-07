@@ -12,7 +12,8 @@
       "../node_modules/@types",
       "./typings"
     ],
-    "types": []
+    "types": [],
+    "skipLibCheck": true
   },
   "include": [
     "**/*"

@@ -51,7 +51,7 @@ export const reducer = createReducer(initialState, builder =>
 )
 
 export interface Dependencies extends todos.Todos {}
-export const epics = epic.create<State, Dependencies>((actions$, state$, { [todos.TodosURI]: api }) =>
+export const epics: epic.Epic<State, Dependencies> = (actions$, state$, { [todos.TodosURI]: api }) =>
   pipe(
     actions$,
     epic.ofType(loadRequest),
@@ -69,4 +69,3 @@ export const epics = epic.create<State, Dependencies>((actions$, state$, { [todo
     ),
     Rx.map(loadResponse)
   )
-)

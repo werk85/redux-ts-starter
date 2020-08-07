@@ -31,9 +31,8 @@ export function createReducer(history: History<LocationState>): Reducer<State, A
 }
 
 export interface Dependencies extends todos.Dependencies {}
-export const epics = epic.create<State, Dependencies>((actions$, state$, deps) =>
+export const epics: epic.Epic<State, Dependencies> = (actions$, state$, deps) =>
   merge(
     todos.epics(actions$, pipe(state$, Rx.map(todosLens.get)), deps)
     // Add further epics here and map over the state
   )
-)
