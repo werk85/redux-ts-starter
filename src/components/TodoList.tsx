@@ -4,7 +4,7 @@ import * as E from 'fp-ts/lib/Either'
 import { pipe } from 'fp-ts/lib/function'
 import { Todo, TodoProps } from './Todo'
 
-export interface Todo extends TodoProps {
+export interface Todo extends Omit<TodoProps, 'onChange'> {
   id: number
 }
 
